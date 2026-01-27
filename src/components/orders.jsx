@@ -9,7 +9,9 @@ const Orders = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get('http://localhost:8080/api/orders');
-        setOrders(response.data);
+        // Handle both array and nested object responses
+        const ordersData = Array.isArray(response.data) ? response.data : response.data.orders || [];
+        setOrders(ordersData);
       } catch (err) {
         setError("No se cargaron los pedidos.");
         console.error(err);
