@@ -9,9 +9,8 @@ const Orders = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get('http://localhost:8080/api/orders');
-        // Handle both array and nested object responses
-        const ordersData = Array.isArray(response.data) ? response.data : response.data.orders || [];
-        setOrders(ordersData);
+        setOrders(Array.isArray(response.data) ? response.data : []); // To make sure we have an array
+        console.log("Pedidos recibidos:", response.data);
       } catch (err) {
         setError("No se cargaron los pedidos.");
         console.error(err);
@@ -41,7 +40,7 @@ const Orders = () => {
                 <ul>
                   {(order.details || []).map((detail, index) => (
                     <li key={index}>
-                      {detail.dishName || `Plato ID: ${detail.dishId}`} - Cantidad: {detail.quantity}
+                      {detail.dish.name || `Plato ID: ${detail.dishId}`} - Cantidad: {detail.quantity}
                     </li>
                   ))}
                 </ul>
