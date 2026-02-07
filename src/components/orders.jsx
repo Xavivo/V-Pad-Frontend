@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../styles/components.css';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -43,7 +44,7 @@ const Orders = () => {
   return (
     <div>
       <div>
-        <button id='btn-createOrder' onClick={createTestOrder} style={{ padding: "10px 20px", marginBottom: "20px", backgroundColor: "#4CAF50", color: "white", border: "none", borderRadius: "5px", cursor: "pointer" }} > Crear pedido de prueba </button>
+        <button id='btnCreateOrder' onClick={createTestOrder} > Crear pedido de prueba </button>
       </div>
       <h2>Historial de Pedidos</h2>
       {orders.length === 0 ? (

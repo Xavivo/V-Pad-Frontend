@@ -1,4 +1,4 @@
-import './App.css'
+import './styles/App.css'
 import Ingredients from './components/ingredients'
 import Dishes from './components/dishes'
 import Orders from './components/orders'
