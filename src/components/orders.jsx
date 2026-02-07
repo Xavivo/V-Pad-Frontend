@@ -10,7 +10,6 @@ const Orders = () => {
       try {
         const response = await axios.get('http://localhost:8080/api/orders');
         setOrders(Array.isArray(response.data) ? response.data : []); // To make sure we have an array
-        console.log("Pedidos recibidos:", response.data);
       } catch (err) {
         setError("No se cargaron los pedidos.");
         console.error(err);
@@ -20,10 +19,32 @@ const Orders = () => {
     fetchOrders();
   }, []);
 
-  if (error) return <p style={{color: 'red'}}>{error}</p>;
+  const createTestOrder = async () => {
+      try {
+        const newOrder = {
+          items: [
+            { dishId: 1, quantity: 1 } // Can be adjusted based on actual dish IDs in your database later on
+          ]
+        };
+
+        await axios.post("http://localhost:8080/api/orders", newOrder);
+
+        // Fetch orders again to see the new order in the list
+        const response = await axios.get("http://localhost:8080/api/orders");
+        setOrders(Array.isArray(response.data) ? response.data : []);
+
+      } catch (err) {
+        console.error("Error creando pedido:", err);
+      }
+    };
+
+  if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
   return (
     <div>
+      <div id='btn-createOrder'>
+        <button onClick={createTestOrder} style={{ padding: "10px 20px", marginBottom: "20px", backgroundColor: "#4CAF50", color: "white", border: "none", borderRadius: "5px", cursor: "pointer" }} > Crear pedido de prueba </button>
+      </div>
       <h2>Historial de Pedidos</h2>
       {orders.length === 0 ? (
         <p>No hay pedidos registrados.</p>
@@ -34,7 +55,7 @@ const Orders = () => {
               <p><strong>Pedido ID:</strong> {order.id}</p>
               <p><strong>Fecha:</strong> {new Date(order.date).toLocaleString()}</p>
               <p><strong>Estado:</strong> {order.status}</p>
-              
+
               <div style={{ marginLeft: '20px', fontSize: '0.9em', color: '#666' }}>
                 <strong>Productos:</strong>
                 <ul>
@@ -45,7 +66,7 @@ const Orders = () => {
                   ))}
                 </ul>
               </div>
-              
+
               <p><strong>Total:</strong> {order.total}€</p>
             </div>
           ))}
