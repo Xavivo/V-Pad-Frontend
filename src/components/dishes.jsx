@@ -27,7 +27,7 @@ const Dishes = () => {
       <ul>
         {dishes.map((dish) => (
           <li key={dish.id}>
-            {dish.name} - Descripción: {dish.description} - Precio: ${dish.price}
+           <strong>Nombre del plato:</strong> {dish.name} - <strong>Descripción:</strong> {dish.description} - <strong>Precio:</strong> ${dish.price}
           </li>
         ))}
       </ul>
