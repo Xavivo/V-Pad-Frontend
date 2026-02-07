@@ -42,8 +42,8 @@ const Orders = () => {
 
   return (
     <div>
-      <div id='btn-createOrder'>
-        <button onClick={createTestOrder} style={{ padding: "10px 20px", marginBottom: "20px", backgroundColor: "#4CAF50", color: "white", border: "none", borderRadius: "5px", cursor: "pointer" }} > Crear pedido de prueba </button>
+      <div>
+        <button id='btn-createOrder' onClick={createTestOrder} style={{ padding: "10px 20px", marginBottom: "20px", backgroundColor: "#4CAF50", color: "white", border: "none", borderRadius: "5px", cursor: "pointer" }} > Crear pedido de prueba </button>
       </div>
       <h2>Historial de Pedidos</h2>
       {orders.length === 0 ? (

@@ -1,0 +1,4 @@
+For greater clarity and understanding of the project, components id's will have the following structure applying to them:
+
+- All button components have the same name structure: btn-*especific name*
+- All id's and classes must be named in kebab-case
