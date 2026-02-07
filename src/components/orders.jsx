@@ -21,23 +21,29 @@ const Orders = () => {
   }, []);
 
   const createTestOrder = async () => {
-      try {
-        const newOrder = {
-          items: [
-            { dishId: 1, quantity: 1 } // Can be adjusted based on actual dish IDs in your database later on
-          ]
-        };
+    try {
+      const newOrder = {
+        items: [
+          { dishId: 1, quantity: 1 } // Can be adjusted based on actual dish IDs in your database later on
+        ]
+      };
 
-        await axios.post("http://localhost:8080/api/orders", newOrder);
+      await axios.post("http://localhost:8080/api/orders", newOrder);
 
-        // Fetch orders again to see the new order in the list
-        const response = await axios.get("http://localhost:8080/api/orders");
-        setOrders(Array.isArray(response.data) ? response.data : []);
+      // Fetch orders again to see the new order in the list
+      const response = await axios.get("http://localhost:8080/api/orders");
+      setOrders(Array.isArray(response.data) ? response.data : []);
 
-      } catch (err) {
-        console.error("Error creando pedido:", err);
-      }
-    };
+    } catch (err) {
+      console.error("Error creando pedido:", err);
+    }
+  };
+
+  const deleteOrder = async (id) => {
+    await axios.delete(`http://localhost:8080/api/orders/${id}`);
+    setOrders(orders.filter(order => order.id !== id));
+  };
+
 
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
@@ -66,6 +72,21 @@ const Orders = () => {
                     </li>
                   ))}
                 </ul>
+                <button
+                  onClick={() => deleteOrder(order.id)}
+                  style={{
+                    backgroundColor: "red",
+                    color: "white",
+                    border: "none",
+                    padding: "5px 10px",
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                    marginTop: "10px"
+                  }}
+                >
+                  Eliminar
+                </button>
+
               </div>
 
               <p><strong>Total:</strong> {order.total}€</p>
