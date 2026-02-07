@@ -24,7 +24,7 @@ const Orders = () => {
     try {
       const newOrder = {
         items: [
-          { dishId: 1, quantity: 1 } // Can be adjusted based on actual dish IDs in your database later on
+          { dishId: 1, quantity: 1 } // Can be adjusted based on actual dish IDs in the database later on
         ]
       };
 
