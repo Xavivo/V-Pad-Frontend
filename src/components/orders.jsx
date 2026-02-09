@@ -79,6 +79,24 @@ const Orders = () => {
     setQuantity(1);
   };
 
+  const createOrderFromCart = async () => {
+    if (cart.length === 0) return;
+
+    const newOrder = {
+      items: cart.map(item => ({
+        dishId: item.dishId,
+        quantity: item.quantity
+      }))
+    };
+
+    await axios.post("http://localhost:8080/api/orders", newOrder);
+
+    // Fetch orders again to see the new order in the list
+    const response = await axios.get("http://localhost:8080/api/orders");
+    setOrders(Array.isArray(response.data) ? response.data : []);
+    setCart([]);
+  }
+
 
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
