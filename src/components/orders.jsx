@@ -34,7 +34,7 @@ const Orders = () => {
 
     fetchOrders();
     fetchDishes();
-    
+
   }, []);
 
   const createTestOrder = async () => {
@@ -59,6 +59,24 @@ const Orders = () => {
   const deleteOrder = async (id) => {
     await axios.delete(`http://localhost:8080/api/orders/${id}`);
     setOrders(orders.filter(order => order.id !== id));
+  };
+
+  const addToCart = () => {
+    if (!selectedDishId) return;
+    const dish = dishes.find(d => d.id === parseInt(selectedDishId));
+
+    setCart(prev => [
+      ...prev,
+      {
+        dishId: dish.id,
+        name: dish.name,
+        price: dish.price,
+        quantity: quantity
+      }
+    ]);
+    
+    setSelectedDishId("");
+    setQuantity(1);
   };
 
 
