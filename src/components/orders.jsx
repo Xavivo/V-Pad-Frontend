@@ -84,6 +84,44 @@ const Orders = () => {
   return (
     <div>
       <div>
+        <h3>Crear pedido</h3>
+        <div id='selectDish'>
+          <select value={selectedDishId} onChange={(e) => setSelectedDishId(e.target.value)}>
+            <option value="">Selecciona un plato de la carta</option>
+            {dishes.map(dish => (
+              <option key={dish.id} value = {dish.id}>
+              {dish.name} - {dish.price}€
+              </option>
+            ))}
+          </select>
+
+          <input
+            type='number'
+            min='1'
+            value={quantity}
+            onChange={(e) => setQuantity(Number(e.target.value))}
+            id='orderQuantity'
+            />
+            
+            <button onClick={addToCart} id='addCart'>
+              Añadir al carrito
+            </button>
+        </div>
+
+        <h4>Carrito</h4>
+        <ul>
+          {cart.map((item, index) => (
+            <li key = {index}>
+              {item.name} x {item.quantity} — {item.price * item.quantity}€
+            </li>
+          ))}
+        </ul>
+
+        <button onClick = {createOrderFromCart} disabled = {cart.length === 0} id='createOrder' style={{backgroundColor: cart.length === 0? "#888" : "#4caf50"}}>
+          Crear pedido
+        </button>
+      </div>
+      <div>
         <button id='btnCreateOrder' onClick={createOrderFromCart} > Crear pedido desde el carrito </button>
       </div>
       <h2>Historial de Pedidos</h2>

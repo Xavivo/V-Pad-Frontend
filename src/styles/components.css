@@ -7,3 +7,24 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+#selectDish {
+  margin-bottom: 20px;
+}
+
+#orderQuantity {
+  width: 60px;
+  margin-left: 10px;
+}
+
+#addCart {
+  margin-left: 10px;
+}
+
+#createOrder {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
