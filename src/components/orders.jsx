@@ -116,13 +116,9 @@ const Orders = () => {
             </li>
           ))}
         </ul>
-
         <button onClick = {createOrderFromCart} disabled = {cart.length === 0} id='createOrder' style={{backgroundColor: cart.length === 0? "#888" : "#4caf50"}}>
           Crear pedido
         </button>
-      </div>
-      <div>
-        <button id='btnCreateOrder' onClick={createOrderFromCart} > Crear pedido desde el carrito </button>
       </div>
       <h2>Historial de Pedidos</h2>
       {orders.length === 0 ? (
