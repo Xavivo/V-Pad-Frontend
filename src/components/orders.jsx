@@ -5,6 +5,12 @@ import '../styles/components.css';
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(null);
+  // useStates to handle new orders
+  const [dishes, setDishes] = useState([]);
+  const [selectedDishId, setSelectedDishId] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  const [cart, setCart] = useState([]);
+
 
   useEffect(() => {
     const fetchOrders = async () => {
