@@ -37,25 +37,6 @@ const Orders = () => {
 
   }, []);
 
-  const createTestOrder = async () => {
-    try {
-      const newOrder = {
-        items: [
-          { dishId: 1, quantity: 1 } // Can be adjusted based on actual dish IDs in the database later on
-        ]
-      };
-
-      await axios.post("http://localhost:8080/api/orders", newOrder);
-
-      // Fetch orders again to see the new order in the list
-      const response = await axios.get("http://localhost:8080/api/orders");
-      setOrders(Array.isArray(response.data) ? response.data : []);
-
-    } catch (err) {
-      console.error("Error creando pedido:", err);
-    }
-  };
-
   const deleteOrder = async (id) => {
     await axios.delete(`http://localhost:8080/api/orders/${id}`);
     setOrders(orders.filter(order => order.id !== id));
@@ -103,7 +84,7 @@ const Orders = () => {
   return (
     <div>
       <div>
-        <button id='btnCreateOrder' onClick={createTestOrder} > Crear pedido de prueba </button>
+        <button id='btnCreateOrder' onClick={createOrderFromCart} > Crear pedido desde el carrito </button>
       </div>
       <h2>Historial de Pedidos</h2>
       {orders.length === 0 ? (
