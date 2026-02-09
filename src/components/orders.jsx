@@ -23,7 +23,18 @@ const Orders = () => {
       }
     };
 
+    const fetchDishes = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/api/dishes');
+        setDishes(Array.isArray(response.data) ? response.data : []); // To make sure we have an array
+      } catch (err) {
+        console.error("Error cargando los platos:", err);
+      }
+    };
+
     fetchOrders();
+    fetchDishes();
+    
   }, []);
 
   const createTestOrder = async () => {
