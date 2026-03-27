@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <h1>Bienvenido a VPad! funciona tela bien</h1>
+      <h1>Bienvenido a VPad! Esto es una prueba de conexión con el Backend</h1>
       <p>Abajo tienen q salir los ingredientes:</p>
       <Ingredients />
 
