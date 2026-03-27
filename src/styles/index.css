@@ -1,0 +1,330 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../public/FondoAvenida.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 15px 20px;
+}
+
+.logo {
+    border-radius: 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e6b940; 
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 5px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.search-button:hover {
+    color: #e6b940;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #1e1e1e;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+fieldset {
+    border: 2px solid #e6b940;
+    border-radius: 10px;      
+    padding: 20px;           
+    background-color:#1e1e1e; 
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.game-image {
+    width: 200px; 
+    height: auto;
+}
+
+.game-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #e6b940;
+    background-color: rgba(30, 30, 30, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap; 
+}
+
+.game-image {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px; 
+}
+
+.game-text {
+    width: 55%; 
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.game-title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #e6b940;
+    position: relative;
+    text-align: center;
+    width: 100%; 
+    top: -200px;
+    margin-right: 20px;
+}
+
+
+.game-description {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    max-width: 80%; 
+    margin: 20px auto; 
+    background: black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+    .game-title {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-title {
+        font-size: 28px;
+    }
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 500px;
+    margin: 40px auto 0 auto;
+}
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    background: #232323;
+}
+.carousel-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: none;
+    transition: opacity 0.5s;
+}
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #e0c97f;
+    color: #232323;
+    border: none;
+    border-radius: 50%;
+    font-size: 2em;
+    padding: 6px 14px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: background 0.2s;
+    z-index: 2;
+}
+.carousel-btn:hover {
+    background: #fffbe6;
+}
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* --- Formulario de contacto --- */
+.contact-container {
+    background: rgba(30, 30, 30, 0.92);
+    max-width: 420px;
+    margin: 60px auto 40px auto;
+    padding: 32px 36px;
+    border-radius: 14px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.5);
+    border: 2px solid #e6b940;
+    animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+.contact-container h2 {
+    text-align: center;
+    color: #e6b940;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+}
+.contact-container label {
+    display: block;
+    margin-top: 16px;
+    color: #e6b940;
+    font-weight: 500;
+}
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 7px;
+    border: 1.5px solid #e6b940;
+    border-radius: 6px;
+    background: #181818;
+    color: #fffbe6;
+    font-size: 1em;
+    transition: border 0.3s, box-shadow 0.3s;
+    resize: none;
+}
+.contact-container input:focus,
+.contact-container textarea:focus {
+    border: 2px solid #fffbe6;
+    outline: none;
+    box-shadow: 0 0 8px #e6b94055;
+}
+#enviarBtn {
+    margin-top: 22px;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #e6b940 60%, #bfa046 100%);
+    color: #232323;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #00000044;
+    transition: background 0.3s, transform 0.1s;
+}
+#enviarBtn:hover {
+    background: linear-gradient(90deg, #fffbe6 60%, #e6b940 100%);
+    transform: scale(1.03);
+}
+#formMessage {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1em;
+    color: #e6b940;
+}
+
+.contact-carousel-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch; /* Cambia flex-start por stretch */
+    gap: 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.contact-container,
+.carousel-container {
+    flex: 1 1 400px;
+    min-width: 320px;
+    max-width: 500px;
+    /* Asegura que ambos tengan la misma altura mínima */
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.carousel-container {
+    max-width: 500px;
+    min-width: 320px;
+    /* Si quieres que el carrusel esté centrado verticalmente dentro de su contenedor, puedes usar justify-content: center; */
+}
+
+@media (max-width: 1000px) {
+    .contact-carousel-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .contact-container,
+    .carousel-container {
+        margin: 0;
+        min-width: 0;
+        max-width: 100%;
+        width: 100%;
+        min-height: unset;
+    }
+}
