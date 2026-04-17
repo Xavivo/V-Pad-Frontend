@@ -18,6 +18,10 @@ nav {
     padding: 15px 20px;
 }
 
+.page-content {
+    padding: 30px 20px 80px;
+}
+
 .logo {
     width: 220px;
     height: auto;
@@ -143,11 +147,8 @@ fieldset {
     font-weight: bold;
     margin-bottom: 15px;
     color: #e6b940;
-    position: relative;
     text-align: center;
-    width: 100%; 
-    top: -200px;
-    margin-right: 20px;
+    width: 100%;
 }
 
 

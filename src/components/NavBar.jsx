@@ -27,7 +27,7 @@ const NavBar = () => {
         ))}
       </div>
       <form className="search-bar" action="#" method="GET">
-        <input type="text" name="search" placeholder="Buscar tu menú..." className="search-input" />
+        <input type="text" name="search" placeholder="Buscar en la carta..." className="search-input" />
         <button type="submit" className="search-button">
           🔍
         </button>
