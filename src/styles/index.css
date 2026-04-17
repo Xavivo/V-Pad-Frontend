@@ -96,6 +96,27 @@ nav {
     box-shadow: 0 14px 24px rgba(230, 185, 64, 0.35);
 }
 
+/* Instagram Icon */
+.instagram-link {
+    margin-right: 40px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.instagram-link:hover {
+    color: #e6b940;
+    transform: scale(1.1);
+}
+
+.instagram-icon {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+}
+
 /* Hamburger Menu */
 .hamburger {
     display: none;
@@ -264,6 +285,10 @@ fieldset {
     }
 
     .search-bar {
+        display: none;
+    }
+
+    .instagram-link {
         display: none;
     }
 
