@@ -1,46 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <link href="src/styles/index.css" rel="stylesheet" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal</title>
-</head>
-
-<body>
-    <nav>
-        <img src="public/LogoAvenida.png" alt="Logo1" class="logo" width="150" height="100">
-        <div class="nav-links">
-            <a href="index.html">Inicio</a>
-            <a href="Carta.html">Carta</a>
-            <a href="pediraqui.html">Pedir Aquí</a>
-            <a href="pediradomicilio.html">Pedir a Domicilio</a>
-            <a href="nuestrasredes.html">Nuestras Redes</a>
-            <a href="contacto.html">Contacto</a>
-        </div>
-        <form class="search-bar" action="#" method="GET">
-            <input type="text" name="search" placeholder="Buscar tu menú..." class="search-input">
-            <button type="submit" class="search-button">🔍</button>
-        </form>
-    </nav>
-    <fieldset class="game-card">
-        <h1>¿Quienes somos?</h1>
-        <p>En Avenida 50 vivimos por las hamburguesas. Cada una de nuestras creaciones combina carne jugosa, panes
-        artesanales y sabores que sorprenden. Más que comer, queremos que disfrutes una experiencia: desde el primer
-        bocado hasta la última sonrisa. Aquí no solo servimos comida, servimos momentos que te hacen volver. Jugosas,
-        atrevidas y absolutamente irresistibles. Ven a por tu pedido!</p>
-    </fieldset>
-    <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/CIGxiEJCgz8" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-</body>
-<footer>
-    <p>© 2026 V-Pad. All rights reserved.</p>
-</footer>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/LogoAvenida.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V-Pad</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
