@@ -469,3 +469,717 @@ fieldset {
         min-height: unset;
     }
 }
+
+/* ============================
+   CARTA — Estilos completos
+   ============================ */
+
+.carta-fieldset {
+    width: 85%;
+    margin: 0 auto;
+    border: 2px solid #e6b940;
+    border-radius: 12px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.6);
+}
+
+.carta-title {
+    text-align: center;
+    font-size: 42px;
+    color: #e6b940;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.carta-scroll {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.carta-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.carta-scroll::-webkit-scrollbar-thumb {
+    background: #e6b940;
+    border-radius: 10px;
+}
+
+.categoria {
+    margin-bottom: 35px;
+}
+
+.categoria-titulo {
+    font-size: 28px;
+    color: #e6b940;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e6b94055;
+    padding-bottom: 5px;
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+}
+
+.producto-preview {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.producto-preview:hover {
+    transform: scale(1.05);
+    background: rgba(230, 185, 64, 0.15);
+}
+
+.producto-preview h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #fffbe6;
+}
+
+.producto-precio {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #e6b940;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal {
+    background: rgba(30, 30, 30, 0.9);
+    border: 2px solid #e6b940;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.6);
+}
+
+.modal h3 {
+    color: #e6b940;
+    margin-bottom: 10px;
+}
+
+.modal-precio {
+    color: #fffbe6;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.modal-cerrar {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #e6b940;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #232323;
+    transition: background 0.2s ease;
+}
+
+.modal-cerrar:hover {
+    background: #fffbe6;
+}
+
+/* ============================
+   CARTA — Mejoras visuales
+   ============================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
+/* Títulos de categoría */
+.categoria-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: #e6b940;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 8px 14px;
+    border-left: 4px solid #e6b940;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* Preview con imagen */
+.producto-img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Modal imagen grande */
+.modal-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Descripción */
+.modal-descripcion {
+    color: #fffbe6;
+    margin-top: 10px;
+}
+
+/* Alergenos */
+.modal-subtitulo {
+    margin-top: 15px;
+    color: #e6b940;
+    font-size: 20px;
+}
+
+.modal-alergenos {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.modal-alergenos li {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    color: #fff;
+}
+
+/* ============================
+   CONTACTO — DISEÑO EQUILIBRADO
+   ============================ */
+
+.contacto-wrapper {
+  width: 85%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  padding: 30px 0;
+}
+
+/* COLUMNA IZQUIERDA */
+.contacto-info-box {
+  background: rgba(0,0,0,0.55);
+  border: 2px solid #e6b940;
+  border-radius: 12px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  color: #fff;
+}
+
+.contacto-title {
+  font-size: 36px;
+  color: #e6b940;
+  margin-bottom: 20px;
+}
+
+.contacto-info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.contacto-icon {
+  color: #e6b940;
+  font-size: 20px;
+}
+
+.contacto-link {
+  color: #fffbe6;
+  text-decoration: none;
+}
+
+.contacto-link:hover {
+  color: #e6b940;
+}
+
+.whatsapp-btn {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25d366;
+  padding: 10px 18px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+}
+
+.contacto-map {
+  width: 100%;
+  height: 240px;
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* COLUMNA DERECHA — FORMULARIO */
+.contacto-form-box {
+  background: rgba(0,0,0,0.55);
+  border: 2px solid #e6b940;
+  border-radius: 12px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  color: #fff;
+}
+
+.contacto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e6b94055;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 16px;
+}
+
+.contacto-form textarea {
+  height: 130px;
+  resize: none;
+}
+
+.contacto-btn {
+  background: #e6b940;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #232323;
+  font-size: 17px;
+  transition: background 0.2s ease;
+}
+
+.contacto-btn:hover {
+  background: #fffbe6;
+}
+
+.form-message {
+  margin-top: 10px;
+  color: #e6b940;
+  font-weight: bold;
+}
+
+/* ============================
+   NUESTRAS REDES — PREMIUM
+   ============================ */
+
+.redes-wrapper {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.redes-title {
+  font-size: 42px;
+  color: #e6b940;
+  margin-bottom: 10px;
+}
+
+.redes-subtitle {
+  font-size: 18px;
+  color: #fffbe6;
+  margin-bottom: 35px;
+}
+
+.redes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+/* TARJETAS */
+.red-card {
+  background: rgba(0,0,0,0.55);
+  border: 2px solid #e6b940;
+  border-radius: 14px;
+  padding: 35px 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.red-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px #e6b940aa;
+}
+
+/* ICONOS */
+.red-icon {
+  font-size: 55px;
+}
+
+/* COLORES CARACTERÍSTICOS */
+.instagram .red-icon {
+  color: #e1306c;
+}
+
+.tiktok .red-icon {
+  color: #69c9d0;
+}
+
+.facebook .red-icon {
+  color: #1877f2;
+}
+
+.whatsapp .red-icon {
+  color: #25d366;
+}
+
+/* ============================
+   HERO COMPLETO (CORREGIDO)
+   ============================ */
+
+.hero-section {
+  position: relative;
+  height: 85vh;
+  margin-top: 0;
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* Degradado que se fusiona con el nav */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #000000f7 0%,
+    #000000e6 25%,
+    #000000d8 55%,
+    #000000f0 100%
+  );
+  z-index: 1;
+}
+
+/* CONTENIDO */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ============================
+   IZQUIERDA
+   ============================ */
+
+.hero-left {
+  width: 50%;
+}
+
+.hero-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 64px;
+  color: #e6b940;
+  text-shadow: 0 0 12px #000;
+}
+
+.hero-subtitle {
+  font-size: 22px;
+  color: #fffbe6;
+  margin-top: 10px;
+  max-width: 450px;
+}
+
+/* ============================
+   DERECHA (CARRUSEL)
+   ============================ */
+
+.hero-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Texto arriba del carrusel */
+.hero-choose {
+  font-size: 20px;
+  color: #fffbe6;
+  margin-bottom: 10px;
+  text-align: center;
+  text-shadow: 0 0 8px #000;
+}
+
+/* Texto sincronizado con el carrusel */
+.hero-burger-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 38px;
+  color: #e6b940;
+  margin-bottom: 15px;
+  text-align: center;
+  text-shadow: 0 0 10px #000;
+}
+
+/* Imagen del carrusel */
+.hero-burger {
+  width: 420px;
+  filter: drop-shadow(0 0 25px #e6b940aa);
+  animation: fadeZoom 0.8s ease;
+}
+
+@keyframes fadeZoom {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ============================
+   BOTONES
+   ============================ */
+
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 20px;
+}
+
+.hero-btn {
+  background: #e6b940;
+  padding: 14px 26px;
+  border-radius: 10px;
+  color: #232323;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.hero-btn-outline {
+  border: 2px solid #e6b940;
+  padding: 14px 26px;
+  border-radius: 10px;
+  color: #e6b940;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+/* ============================
+   SECCIÓN INTRO
+   ============================ */
+
+.intro-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(0,0,0,0.55);
+  border-top: 2px solid #e6b940;
+}
+
+.intro-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 42px;
+  color: #e6b940;
+  margin-bottom: 20px;
+}
+
+.intro-text {
+  font-size: 20px;
+  color: #fffbe6;
+  margin-bottom: 10px;
+}
+
+/* ============================
+   BURGER ESTRELLA — SMASH AVENIDA
+   ============================ */
+
+.estrella-section {
+  padding: 70px 20px;
+  background: #111;
+  border-top: 2px solid #e6b940;
+}
+
+.estrella-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.estrella-img {
+  width: 380px;
+  filter: drop-shadow(0 0 20px #e6b940aa);
+}
+
+.estrella-texts {
+  flex: 1;
+}
+
+.estrella-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 48px;
+  color: #e6b940;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px #000;
+}
+
+.estrella-desc {
+  color: #fffbe6;
+  font-size: 20px;
+  margin: 15px 0;
+  max-width: 500px;
+}
+
+.estrella-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.estrella-list li {
+  color: #fff;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.estrella-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #e6b940;
+  padding: 12px 22px;
+  border-radius: 8px;
+  color: #232323;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.estrella-btn:hover {
+  background: #fff3c2;
+}
+
+/* ============================
+   VALORES / CARDS
+   ============================ */
+
+.valores-section {
+  padding: 70px 20px;
+  background: rgba(0,0,0,0.55);
+  border-top: 2px solid #e6b940;
+}
+
+.valores-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 42px;
+  color: #e6b940;
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px #000;
+}
+
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.valor-card {
+  background: rgba(0,0,0,0.55);
+  border: 2px solid #e6b940;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  transition: 0.25s ease;
+}
+
+.valor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #e6b94055;
+}
+
+.valor-card h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 26px;
+  color: #e6b940;
+  margin-bottom: 10px;
+}
+
+.valor-card p {
+  font-size: 18px;
+  color: #fffbe6;
+}
+
+/* ============================
+   BANNER FINAL
+   ============================ */
+
+.banner-section {
+  padding: 50px 20px;
+  background: #000;
+  text-align: center;
+  border-top: 2px solid #e6b940;
+}
+
+.banner-text {
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  color: #e6b940;
+  text-shadow: 0 0 10px #000;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.3;
+}
+
+
+
+
+
+
