@@ -5,7 +5,6 @@ import Home from './pages/Home'
 import Carta from './pages/Carta'
 import PedirAqui from './pages/PedirAqui'
 import PedirADomicilio from './pages/PedirADomicilio'
-import NuestrasRedes from './pages/NuestrasRedes'
 import Contacto from './pages/Contacto'
 
 const routes = {
@@ -13,7 +12,6 @@ const routes = {
   '/carta': <Carta />,
   '/pediraqui': <PedirAqui />,
   '/pediradomicilio': <PedirADomicilio />,
-  '/nuestrasredes': <NuestrasRedes />,
   '/contacto': <Contacto />,
 }
 

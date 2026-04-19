@@ -8,3 +8,12 @@
     align-items: center;
     min-height: 100vh;
 }
+
+.retry-btn {
+    padding: 8px 16px;
+    background-color: #e6b940;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

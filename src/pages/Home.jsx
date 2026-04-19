@@ -11,19 +11,18 @@ const Home = () => {
       setIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
     }, 2500);
     return () => clearInterval(interval);
-  }, []);
+  }, [slides.length]);
 
   return (
     <div className="home-wrapper">
 
-      {/* ================= HERO PRINCIPAL ================= */}
+      {/* Main hero */}
       <section className="hero-section">
 
   <div className="hero-bg"></div>
 
   <div className="hero-content">
 
-    {/* IZQUIERDA: TEXTO / CARD */}
     <div className="hero-left">
       <h1 className="hero-title">Smash Avenida</h1>
       <p className="hero-subtitle">
@@ -36,13 +35,11 @@ const Home = () => {
       </div>
     </div>
 
-    {/* DERECHA: CARRUSEL */}
+    {/* Carrousel */}
     <div className="hero-right">
 
-      {/* TEXTO ARRIBA DEL CARRUSEL */}
       <p className="hero-choose">Elige la Hamburguesa que más te guste</p>
 
-      {/* TEXTO SINCRONIZADO CON EL CARRUSEL */}
       <h3 className="hero-burger-name">
         {index === 0 || index === 2 ? "La Avenida" : "La Retinto"}
       </h3>
@@ -57,7 +54,7 @@ const Home = () => {
   </div>
 </section>
 
-      {/* ================= SECCIÓN PRESENTACIÓN ================= */}
+      {/* Presentation section */}
       <section className="intro-section">
         <h2 className="intro-title">Bienvenido a Avenida 50</h2>
         <p className="intro-text">
@@ -71,58 +68,58 @@ const Home = () => {
         </p>
       </section>
 
-      {/* ================= BURGER ESTRELLA ================= */}
-      <section className="estrella-section">
-        <div className="estrella-content">
-          <img src={burguer1} className="estrella-img" alt="Smash Avenida" />
+      {/* Burguer */}
+      <section className="star-section">
+        <div className="star-content">
+          <img src={burguer1} className="star-img" alt="Smash Avenida" />
 
-          <div className="estrella-texts">
-            <h2 className="estrella-title">Smash Avenida</h2>
-            <p className="estrella-desc">
+          <div className="star-texts">
+            <h2 className="star-title">Smash Avenida</h2>
+            <p className="star-desc">
               Nuestra creación más icónica. Doble carne smash madurada, queso fundido,
               cebolla caramelizada y nuestra salsa Avenida.
             </p>
 
-            <ul className="estrella-list">
+            <ul className="star-list">
               <li>✔ Carne madurada 100% vacuno</li>
               <li>✔ Pan brioche tostado</li>
               <li>✔ Queso cheddar doble capa</li>
               <li>✔ Salsa Avenida casera</li>
             </ul>
 
-            <a href="/carta" className="estrella-btn">DESCÚBRELA</a>
+            <a href="/carta" className="star-btn">DESCÚBRELA</a>
           </div>
         </div>
       </section>
 
-      {/* ================= CARDS DE VALORES ================= */}
+      {/* Cards */}
       <section className="valores-section">
-        <h2 className="valores-title">Nuestro Concepto</h2>
+        <h2 className="values-title">Nuestro Concepto</h2>
 
-        <div className="valores-grid">
-          <div className="valor-card">
+        <div className="values-grid">
+          <div className="value-card">
             <h3>Carne Madurada</h3>
             <p>Sabor intenso y jugoso en cada smash.</p>
           </div>
 
-          <div className="valor-card">
+          <div className="value-card">
             <h3>Pan Brioche</h3>
             <p>Suave, tostado y perfecto para cada bocado.</p>
           </div>
 
-          <div className="valor-card">
+          <div className="value-card">
             <h3>Salsas Caseras</h3>
             <p>Recetas únicas creadas en nuestra cocina.</p>
           </div>
 
-          <div className="valor-card">
+          <div className="value-card">
             <h3>Smash Perfecta</h3>
             <p>Textura crujiente por fuera, jugosa por dentro.</p>
           </div>
         </div>
       </section>
 
-      {/* ================= BANNER POTENTE ================= */}
+      {/* Banner */}
       <section className="banner-section">
         <p className="banner-text">
           Las burgers de Avenida 50 son las mas sabrosas — no te quedes sin la tuya.
