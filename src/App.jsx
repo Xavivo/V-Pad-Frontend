@@ -6,12 +6,14 @@ import Carta from './pages/Carta'
 import PedirAqui from './pages/PedirAqui'
 import PedirADomicilio from './pages/PedirADomicilio'
 import Contacto from './pages/Contacto'
+import Nosotros from './pages/Nosotros'
 
 const routes = {
   '/': <Home />,
   '/carta': <Carta />,
   '/pediraqui': <PedirAqui />,
   '/pediradomicilio': <PedirADomicilio />,
+  '/nosotros': <Nosotros />,
   '/contacto': <Contacto />,
 }
 

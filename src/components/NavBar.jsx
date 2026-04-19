@@ -6,6 +6,7 @@ const NavBar = () => {
   const links = [
     { path: '/', label: 'Inicio' },
     { path: '/carta', label: 'Carta' },
+    { path: '/nosotros', label: 'Nosotros' },
     { path: '/pediraqui', label: 'Pedir Aquí' },
     { path: '/pediradomicilio', label: 'Pedir a Domicilio' },
     { path: '/contacto', label: 'Contacto' },
