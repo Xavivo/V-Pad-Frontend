@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,6 +17,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.4);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
     padding: 15px 20px;
@@ -57,6 +60,7 @@ nav {
     padding: 8px 12px;
     border-radius: 999px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(12px);
 }
 
@@ -97,6 +101,7 @@ nav {
 }
 
 /* Instagram Icon */
+
 .instagram-link {
     margin-right: 40px;
     color: white;
@@ -118,6 +123,7 @@ nav {
 }
 
 /* Hamburger Menu */
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -145,12 +151,14 @@ nav {
 }
 
 /* Mobile Navigation */
+
 .nav-links-mobile {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.3);
+    -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     flex-direction: column;
     padding: 20px 0 30px 0;
@@ -265,6 +273,7 @@ fieldset {
 }
 
 /* Responsive */
+
 @media (max-width: 1024px) {
     .logo {
         width: 250px;
@@ -470,9 +479,7 @@ fieldset {
     }
 }
 
-/* ============================
-   CARTA — Estilos completos
-   ============================ */
+/* Menu */
 
 .carta-fieldset {
     width: 85%;
@@ -481,6 +488,7 @@ fieldset {
     border-radius: 12px;
     padding: 25px;
     background: rgba(0, 0, 0, 0.55);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 24px rgba(0,0,0,0.6);
 }
@@ -555,6 +563,7 @@ fieldset {
 }
 
 /* Modal */
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -562,6 +571,7 @@ fieldset {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.65);
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
@@ -607,13 +617,8 @@ fieldset {
     background: #fffbe6;
 }
 
-/* ============================
-   CARTA — Mejoras visuales
-   ============================ */
+/* Category titles */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
-
-/* Títulos de categoría */
 .categoria-titulo {
     font-family: 'Playfair Display', serif;
     font-size: 30px;
@@ -625,7 +630,7 @@ fieldset {
     margin-bottom: 15px;
 }
 
-/* Preview con imagen */
+/* Preview */
 .producto-img {
     width: 100%;
     height: 120px;
@@ -634,7 +639,7 @@ fieldset {
     margin-bottom: 10px;
 }
 
-/* Modal imagen grande */
+/* Modal img */
 .modal-img {
     width: 100%;
     height: 220px;
@@ -643,7 +648,7 @@ fieldset {
     margin-bottom: 15px;
 }
 
-/* Descripción */
+/* Description */
 .modal-descripcion {
     color: #fffbe6;
     margin-top: 10px;
@@ -670,9 +675,7 @@ fieldset {
     color: #fff;
 }
 
-/* ============================
-   CONTACTO — DISEÑO EQUILIBRADO
-   ============================ */
+/* Contact */
 
 .contacto-wrapper {
   width: 85%;
@@ -683,12 +686,12 @@ fieldset {
   padding: 30px 0;
 }
 
-/* COLUMNA IZQUIERDA */
 .contacto-info-box {
   background: rgba(0,0,0,0.55);
   border: 2px solid #e6b940;
   border-radius: 12px;
   padding: 30px;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   color: #fff;
 }
@@ -746,12 +749,14 @@ fieldset {
   overflow: hidden;
 }
 
-/* COLUMNA DERECHA — FORMULARIO */
+/* Form */
+
 .contacto-form-box {
   background: rgba(0,0,0,0.55);
   border: 2px solid #e6b940;
   border-radius: 12px;
   padding: 30px;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   color: #fff;
 }
@@ -800,9 +805,7 @@ fieldset {
   font-weight: bold;
 }
 
-/* ============================
-   NUESTRAS REDES — PREMIUM
-   ============================ */
+/* Socials */
 
 .redes-wrapper {
   width: 85%;
@@ -829,7 +832,8 @@ fieldset {
   gap: 25px;
 }
 
-/* TARJETAS */
+/* Cards */
+
 .red-card {
   background: rgba(0,0,0,0.55);
   border: 2px solid #e6b940;
@@ -843,6 +847,7 @@ fieldset {
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -852,12 +857,12 @@ fieldset {
   box-shadow: 0 0 18px #e6b940aa;
 }
 
-/* ICONOS */
+/* Icons */
+
 .red-icon {
   font-size: 55px;
 }
 
-/* COLORES CARACTERÍSTICOS */
 .instagram .red-icon {
   color: #e1306c;
 }
@@ -874,9 +879,7 @@ fieldset {
   color: #25d366;
 }
 
-/* ============================
-   HERO COMPLETO (CORREGIDO)
-   ============================ */
+/* Hero */
 
 .hero-section {
   position: relative;
@@ -889,7 +892,6 @@ fieldset {
   overflow: hidden;
 }
 
-/* Degradado que se fusiona con el nav */
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -903,7 +905,6 @@ fieldset {
   z-index: 1;
 }
 
-/* CONTENIDO */
 .hero-content {
   position: relative;
   z-index: 3;
@@ -913,10 +914,6 @@ fieldset {
   justify-content: space-between;
   align-items: center;
 }
-
-/* ============================
-   IZQUIERDA
-   ============================ */
 
 .hero-left {
   width: 50%;
@@ -936,10 +933,6 @@ fieldset {
   max-width: 450px;
 }
 
-/* ============================
-   DERECHA (CARRUSEL)
-   ============================ */
-
 .hero-right {
   width: 50%;
   display: flex;
@@ -947,7 +940,6 @@ fieldset {
   align-items: center;
 }
 
-/* Texto arriba del carrusel */
 .hero-choose {
   font-size: 20px;
   color: #fffbe6;
@@ -956,7 +948,6 @@ fieldset {
   text-shadow: 0 0 8px #000;
 }
 
-/* Texto sincronizado con el carrusel */
 .hero-burger-name {
   font-family: 'Anton', sans-serif;
   font-size: 38px;
@@ -966,7 +957,6 @@ fieldset {
   text-shadow: 0 0 10px #000;
 }
 
-/* Imagen del carrusel */
 .hero-burger {
   width: 420px;
   filter: drop-shadow(0 0 25px #e6b940aa);
@@ -978,9 +968,7 @@ fieldset {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* ============================
-   BOTONES
-   ============================ */
+/* Btns */
 
 .hero-buttons {
   margin-top: 25px;
@@ -1008,9 +996,7 @@ fieldset {
   transition: 0.2s ease;
 }
 
-/* ============================
-   SECCIÓN INTRO
-   ============================ */
+/* Intro section */
 
 .intro-section {
   text-align: center;
@@ -1031,10 +1017,6 @@ fieldset {
   color: #fffbe6;
   margin-bottom: 10px;
 }
-
-/* ============================
-   BURGER ESTRELLA — SMASH AVENIDA
-   ============================ */
 
 .estrella-section {
   padding: 70px 20px;
@@ -1102,10 +1084,6 @@ fieldset {
   background: #fff3c2;
 }
 
-/* ============================
-   VALORES / CARDS
-   ============================ */
-
 .valores-section {
   padding: 70px 20px;
   background: rgba(0,0,0,0.55);
@@ -1136,6 +1114,7 @@ fieldset {
   padding: 25px;
   text-align: center;
   color: #fff;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   transition: 0.25s ease;
 }
@@ -1157,9 +1136,7 @@ fieldset {
   color: #fffbe6;
 }
 
-/* ============================
-   BANNER FINAL
-   ============================ */
+/* Banner */
 
 .banner-section {
   padding: 50px 20px;
@@ -1177,9 +1154,3 @@ fieldset {
   margin: 0 auto;
   line-height: 1.3;
 }
-
-
-
-
-
-
