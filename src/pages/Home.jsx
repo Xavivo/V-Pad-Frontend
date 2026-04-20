@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import burguer1 from "/burguer1.webp";
 import burguer2 from "/burguer2.webp";
+import burguer3 from "/burguer3.webp";
 
 const Home = () => {
   const slides = [burguer1, burguer2, burguer1, burguer2];
@@ -24,9 +25,9 @@ const Home = () => {
         <div className="hero-content">
 
           <div className="hero-left">
-            <h1 className="hero-title">Smash Avenida</h1>
+            <h1 className="hero-title">Avenida 50</h1>
             <p className="hero-subtitle">
-              La burger más icónica de Avenida 50. Carne madurada, pan brioche y sabor explosivo.
+              Seleccionamos la mejor carne, horneamos nuestro propio pan y creamos recetas que rompen el molde.
             </p>
 
             <div className="hero-buttons">
@@ -38,7 +39,7 @@ const Home = () => {
           {/* Carrousel */}
           <div className="hero-right">
 
-            <p className="hero-choose">Elige la Hamburguesa que más te guste</p>
+            <p className="hero-choose"><span>Elige la Hamburguesa que más te guste</span></p>
 
             <h3 className="hero-burger-name">
               {index === 0 || index === 2 ? "La Avenida Burguer" : "La Chicken Thai"}
@@ -54,27 +55,31 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Presentation section */}
-      <section className="intro-section">
-        <h2 className="intro-title">Bienvenido a Avenida 50</h2>
-        <p className="intro-text">
-          Burgers hechas con pasión, ingredientes premium y un estilo único.
-        </p>
-        <p className="intro-text">
-          Prueba combinaciones explosivas creadas para amantes de las smash.
-        </p>
-        <p className="intro-text">
-          Más de 20 burgers diseñadas para sorprender.
-        </p>
+      {/* Bento gallery */}
+      <section className="visual-grid-section">
+        <div className="bento-grid">
+          <div className="bento-item main-photo">
+            <img src={burguer1} alt="Burger close up" />
+            <div className="bento-text"><h3>Sabor sin frenos</h3></div>
+          </div>
+          <div className="bento-item side-photo-1">
+            <img src={burguer2} alt="Local" />
+            <div className="bento-text"><h3>Vibe Urbano</h3></div>
+          </div>
+          <div className="bento-item side-photo-2">
+            <img src={burguer3} alt="Ingredientes" />
+            <div className="bento-text"><h3>100% Vacuno</h3></div>
+          </div>
+        </div>
       </section>
 
       {/* Burguer */}
       <section className="star-section">
         <div className="star-content">
-          <img src={burguer1} className="star-img" alt="Smash Avenida" />
+          <img src={burguer3} className="star-img" alt="La disfrutona" />
 
           <div className="star-texts">
-            <h2 className="star-title">Smash Avenida</h2>
+            <h2 className="star-title">La disfrutona</h2>
             <p className="star-desc">
               Nuestra creación más icónica. Doble carne smash madurada, queso fundido,
               cebolla caramelizada y nuestra salsa Avenida.
