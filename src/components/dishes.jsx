@@ -22,15 +22,18 @@ const Dishes = () => {
   if (error) return <p style={{color: 'red'}}>{error}</p>;
 
   return (
-    <div>
-      <h2>Lista de Platos</h2>
-      <ul>
-        {dishes.map((dish) => (
-          <li key={dish.id}>
-           <strong>Nombre del plato:</strong> {dish.name} - <strong>Descripción:</strong> {dish.description} - <strong>Precio:</strong> ${dish.price}
-          </li>
-        ))}
-      </ul>
+    <div className="dishes-grid">
+      {dishes.map((dish) => (
+        <div key={dish.id} className="dish-card">
+          <h4>{dish.name}</h4>
+          <div className="dish-price">${dish.price}</div>
+          <p className="dish-description">{dish.description}</p>
+          <div className="dish-ingredients">
+            <span className="dish-ingredients-label">Ingredientes:</span>
+            <span>{dish.ingredients || 'No especificados'}</span>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

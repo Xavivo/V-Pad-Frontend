@@ -1441,3 +1441,344 @@ fieldset {
   border: 1px solid rgba(230, 185, 64, 0.4);
   color: #fffbe6;
 }
+
+/* Pedir Page Redesign - Hide unwanted sections */
+.ingredients-section {
+  display: none;
+}
+
+/* Pedir Page Layout */
+div > .ingredients-section + .dishes-section {
+  display: block;
+}
+
+.pedir-page-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pedir-dishes-container {
+  width: 100%;
+}
+
+.pedir-dishes-container h3 {
+  font-size: 28px;
+  color: #e6b940;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e6b940;
+  padding-bottom: 10px;
+}
+
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.dish-card {
+  background: rgba(30, 30, 30, 0.8);
+  border: 2px solid #e6b940;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dish-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(230, 185, 64, 0.3);
+  background-color: rgba(30, 30, 30, 0.95);
+}
+
+.dish-card h4 {
+  font-size: 22px;
+  color: #e6b940;
+  margin: 0 0 10px 0;
+}
+
+.dish-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fffbe6;
+  margin: 8px 0;
+}
+
+.dish-description {
+  font-size: 14px;
+  color: #ddd;
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.dish-ingredients {
+  font-size: 12px;
+  color: #b0b0b0;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(230, 185, 64, 0.2);
+}
+
+.dish-ingredients-label {
+  color: #e6b940;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.pedir-cart-container {
+  background: rgba(30, 30, 30, 0.8);
+  border: 2px solid #e6b940;
+  border-radius: 12px;
+  padding: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.pedir-cart-container h3 {
+  font-size: 22px;
+  color: #e6b940;
+  margin: 0 0 20px 0;
+  border-bottom: 2px solid #e6b940;
+  padding-bottom: 10px;
+}
+
+.pedir-cart-empty {
+  color: #aaa;
+  text-align: center;
+  padding: 40px 10px;
+  font-size: 14px;
+}
+
+.pedir-cart-items {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.pedir-cart-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #e6b940;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.pedir-cart-item-name {
+  color: #e6b940;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.pedir-cart-item-qty {
+  color: #ddd;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.pedir-cart-item-price {
+  color: #fffbe6;
+  font-weight: bold;
+}
+
+.pedir-cart-total {
+  background: rgba(230, 185, 64, 0.15);
+  border: 1px solid #e6b940;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.pedir-cart-total-label {
+  color: #e6b940;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.pedir-cart-total-amount {
+  color: #fffbe6;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.pedir-cart-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #e6b940 60%, #bfa046 100%);
+  color: #232323;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(230, 185, 64, 0.3);
+}
+
+.pedir-cart-button:hover {
+  background: linear-gradient(90deg, #fffbe6 60%, #e6b940 100%);
+  transform: scale(1.02);
+}
+
+.pedir-cart-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pedir-dish-select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid #e6b940;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 12px;
+}
+
+.pedir-qty-input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.pedir-qty-input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #e6b940;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 12px;
+}
+
+.pedir-add-btn {
+  flex: 1;
+  padding: 8px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.pedir-add-btn:hover {
+  background: #45a049;
+}
+
+.pedir-remove-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 6px;
+  background: rgba(255, 0, 0, 0.3);
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  transition: background 0.2s ease;
+}
+
+.pedir-remove-btn:hover {
+  background: rgba(255, 0, 0, 0.5);
+}
+
+/* Show Orders section for cart display */
+.orders-section {
+  display: block;
+}
+
+.pedir-cart-wrapper {
+  width: 100%;
+}
+
+.pedir-cart-ui {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .pedir-page-layout {
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
+  }
+
+  .dishes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .pedir-page-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pedir-cart-container {
+    position: static;
+    margin-top: 30px;
+  }
+
+  .dishes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .dish-card {
+    padding: 15px;
+  }
+
+  .dish-card h4 {
+    font-size: 18px;
+  }
+
+  .dish-price {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pedir-page-layout {
+    padding: 0 10px;
+  }
+
+  .dishes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dish-card {
+    padding: 12px;
+  }
+
+  .dish-card h4 {
+    font-size: 16px;
+  }
+
+  .dish-price {
+    font-size: 16px;
+  }
+
+  .dish-description {
+    font-size: 12px;
+  }
+
+  .pedir-cart-container {
+    padding: 15px;
+  }
+
+  .pedir-cart-container h3 {
+    font-size: 18px;
+  }
+}

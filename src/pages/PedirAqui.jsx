@@ -11,20 +11,26 @@ const PedirAqui = () => {
   return (
     <div>
       <button className="back-button" onClick={handleGoBack}>← Volver</button>
-      <section className="ingredients-section">
-        <h3>Ingredientes disponibles</h3>
-        <Ingredients />
-      </section>
+      
+      <div className="pedir-page-layout">
+        <div className="pedir-dishes-container">
+          <section className="ingredients-section">
+            <h3>Ingredientes disponibles</h3>
+            <Ingredients />
+          </section>
 
-      <section className="dishes-section">
-        <h3>Platos disponibles</h3>
-        <Dishes />
-      </section>
+          <section className="dishes-section">
+            <h3>Platos disponibles</h3>
+            <Dishes />
+          </section>
+        </div>
 
-      <section className="orders-section">
-        <h3>Pedidos actuales</h3>
-        <Orders />
-      </section>
+        <div className="pedir-cart-container">
+          <section className="orders-section">
+            <Orders />
+          </section>
+        </div>
+      </div>
     </div>
   );
 };

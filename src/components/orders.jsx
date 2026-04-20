@@ -16,7 +16,7 @@ const Orders = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get('http://localhost:8080/api/orders');
-        setOrders(Array.isArray(response.data) ? response.data : []); // To make sure we have an array
+        setOrders(Array.isArray(response.data) ? response.data : []);
       } catch (err) {
         setError("No se cargaron los pedidos.");
         console.error(err);
@@ -26,7 +26,7 @@ const Orders = () => {
     const fetchDishes = async () => {
       try {
         const response = await axios.get('http://localhost:8080/api/dishes');
-        setDishes(Array.isArray(response.data) ? response.data : []); // To make sure we have an array
+        setDishes(Array.isArray(response.data) ? response.data : []);
       } catch (err) {
         console.error("Error cargando los platos:", err);
       }
@@ -60,6 +60,10 @@ const Orders = () => {
     setQuantity(1);
   };
 
+  const removeFromCart = (index) => {
+    setCart(cart.filter((_, i) => i !== index));
+  };
+
   const createOrderFromCart = async () => {
     if (cart.length === 0) return;
 
@@ -76,92 +80,137 @@ const Orders = () => {
     const response = await axios.get("http://localhost:8080/api/orders");
     setOrders(Array.isArray(response.data) ? response.data : []);
     setCart([]);
-  }
+  };
 
+  const cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2);
 
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
   return (
-    <div>
-      <div>
-        <h3>Crear pedido</h3>
-        <div id='selectDish'>
-          <select value={selectedDishId} onChange={(e) => setSelectedDishId(e.target.value)}>
-            <option value="">Selecciona un plato de la carta</option>
+    <div className="pedir-cart-wrapper">
+      {/* Shopping Cart Display */}
+      <div className="pedir-cart-ui">
+        <h3>🛒 Tu Carrito</h3>
+        
+        {/* Dish Selector */}
+        <div style={{ marginBottom: '20px' }}>
+          <select 
+            value={selectedDishId} 
+            onChange={(e) => setSelectedDishId(e.target.value)}
+            className="pedir-dish-select"
+          >
+            <option value="">Selecciona un plato</option>
             {dishes.map(dish => (
-              <option key={dish.id} value = {dish.id}>
-              {dish.name} - {dish.price}€
+              <option key={dish.id} value={dish.id}>
+                {dish.name} - ${dish.price}
               </option>
             ))}
           </select>
 
-          <input
-            type='number'
-            min='1'
-            value={quantity}
-            onChange={(e) => setQuantity(Number(e.target.value))}
-            id='orderQuantity'
+          <div className="pedir-qty-input-group">
+            <input
+              type='number'
+              min='1'
+              value={quantity}
+              onChange={(e) => setQuantity(Number(e.target.value))}
+              className="pedir-qty-input"
             />
-            
-            <button onClick={addToCart} id='addCart'>
-              Añadir al carrito
+            <button 
+              onClick={addToCart}
+              className="pedir-add-btn"
+            >
+              +
             </button>
+          </div>
         </div>
 
-        <h4>Carrito</h4>
-        <ul>
-          {cart.map((item, index) => (
-            <li key = {index}>
-              {item.name} x {item.quantity} — {item.price * item.quantity}€
-            </li>
-          ))}
-        </ul>
-        <button onClick = {createOrderFromCart} disabled = {cart.length === 0} id='createOrder' style={{backgroundColor: cart.length === 0? "#888" : "#4caf50"}}>
-          Crear pedido
-        </button>
-      </div>
-      <h2>Historial de Pedidos</h2>
-      {orders.length === 0 ? (
-        <p>No hay pedidos registrados.</p>
-      ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-          {orders.map((order) => (
-            <div key={order.id} style={{ border: '1px solid #444', padding: '15px', borderRadius: '10px' }}>
-              <p><strong>Pedido ID:</strong> {order.id}</p>
-              <p><strong>Fecha:</strong> {new Date(order.date).toLocaleString()}</p>
-              <p><strong>Estado:</strong> {order.status}</p>
-
-              <div style={{ marginLeft: '20px', fontSize: '0.9em', color: '#666' }}>
-                <strong>Productos:</strong>
-                <ul>
-                  {(order.details || []).map((detail, index) => (
-                    <li key={index}>
-                      {detail.dish.name || `Plato ID: ${detail.dishId}`} - Cantidad: {detail.quantity}
-                    </li>
-                  ))}
-                </ul>
-                <button
-                  onClick={() => deleteOrder(order.id)}
-                  style={{
-                    backgroundColor: "red",
-                    color: "white",
-                    border: "none",
-                    padding: "5px 10px",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    marginTop: "10px"
-                  }}
-                >
-                  Eliminar
-                </button>
-
-              </div>
-
-              <p><strong>Total:</strong> {order.total}€</p>
+        {/* Cart Items Display */}
+        {cart.length === 0 ? (
+          <div className="pedir-cart-empty">
+            Carrito vacío
+          </div>
+        ) : (
+          <>
+            <div className="pedir-cart-items">
+              {cart.map((item, index) => (
+                <div key={index} className="pedir-cart-item">
+                  <div className="pedir-cart-item-name">{item.name}</div>
+                  <div className="pedir-cart-item-qty">Cantidad: {item.quantity}</div>
+                  <div className="pedir-cart-item-price">${(item.price * item.quantity).toFixed(2)}</div>
+                  <button
+                    onClick={() => removeFromCart(index)}
+                    className="pedir-remove-btn"
+                  >
+                    Eliminar
+                  </button>
+                </div>
+              ))}
             </div>
-          ))}
+
+            {/* Cart Total */}
+            <div className="pedir-cart-total">
+              <div className="pedir-cart-total-label">Total</div>
+              <div className="pedir-cart-total-amount">${cartTotal}</div>
+            </div>
+
+            {/* Create Order Button */}
+            <button 
+              onClick={createOrderFromCart} 
+              className="pedir-cart-button"
+            >
+              Confirmar Pedido
+            </button>
+          </>
+        )}
+      </div>
+
+      {/* Hidden order history section */}
+      <div style={{ display: 'none' }}>
+        <div>
+          <h3>Historial de Pedidos</h3>
+          {orders.length === 0 ? (
+            <p>No hay pedidos registrados.</p>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+              {orders.map((order) => (
+                <div key={order.id} style={{ border: '1px solid #444', padding: '15px', borderRadius: '10px' }}>
+                  <p><strong>Pedido ID:</strong> {order.id}</p>
+                  <p><strong>Fecha:</strong> {new Date(order.date).toLocaleString()}</p>
+                  <p><strong>Estado:</strong> {order.status}</p>
+
+                  <div style={{ marginLeft: '20px', fontSize: '0.9em', color: '#666' }}>
+                    <strong>Productos:</strong>
+                    <ul>
+                      {(order.details || []).map((detail, index) => (
+                        <li key={index}>
+                          {detail.dish.name || `Plato ID: ${detail.dishId}`} - Cantidad: {detail.quantity}
+                        </li>
+                      ))}
+                    </ul>
+                    <button
+                      onClick={() => deleteOrder(order.id)}
+                      style={{
+                        backgroundColor: "red",
+                        color: "white",
+                        border: "none",
+                        padding: "5px 10px",
+                        borderRadius: "5px",
+                        cursor: "pointer",
+                        marginTop: "10px"
+                      }}
+                    >
+                      Eliminar
+                    </button>
+
+                  </div>
+
+                  <p><strong>Total:</strong> {order.total}€</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
