@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import burguer1 from "/burguer1.png";
-import burguer2 from "/burguer2.png";
+import burguer1 from "/burguer1.webp";
+import burguer2 from "/burguer2.webp";
 
 const Home = () => {
   const slides = [burguer1, burguer2, burguer1, burguer2];
@@ -19,40 +19,40 @@ const Home = () => {
       {/* Main hero */}
       <section className="hero-section">
 
-  <div className="hero-bg"></div>
+        <div className="hero-bg"></div>
 
-  <div className="hero-content">
+        <div className="hero-content">
 
-    <div className="hero-left">
-      <h1 className="hero-title">Smash Avenida</h1>
-      <p className="hero-subtitle">
-        La burger más icónica de Avenida 50. Carne madurada, pan brioche y sabor explosivo.
-      </p>
+          <div className="hero-left">
+            <h1 className="hero-title">Smash Avenida</h1>
+            <p className="hero-subtitle">
+              La burger más icónica de Avenida 50. Carne madurada, pan brioche y sabor explosivo.
+            </p>
 
-      <div className="hero-buttons">
-        <a href="/pedido" className="hero-btn">QUIERO MI BURGER</a>
-        <a href="/carta" className="hero-btn-outline">VER CARTA</a>
-      </div>
-    </div>
+            <div className="hero-buttons">
+              <a href="/pedido" className="hero-btn">QUIERO MI BURGER</a>
+              <a href="/carta" className="hero-btn-outline">VER CARTA</a>
+            </div>
+          </div>
 
-    {/* Carrousel */}
-    <div className="hero-right">
+          {/* Carrousel */}
+          <div className="hero-right">
 
-      <p className="hero-choose">Elige la Hamburguesa que más te guste</p>
+            <p className="hero-choose">Elige la Hamburguesa que más te guste</p>
 
-      <h3 className="hero-burger-name">
-        {index === 0 || index === 2 ? "La Avenida" : "La Retinto"}
-      </h3>
+            <h3 className="hero-burger-name">
+              {index === 0 || index === 2 ? "La Avenida Burguer" : "La Chicken Thai"}
+            </h3>
 
-      <img
-        src={slides[index]}
-        alt="Hamburguesa"
-        className="hero-burger"
-      />
-    </div>
+            <img
+              src={slides[index]}
+              alt="Hamburguesa"
+              className="hero-burger"
+            />
+          </div>
 
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* Presentation section */}
       <section className="intro-section">

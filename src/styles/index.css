@@ -1351,6 +1351,7 @@ fieldset {
   width: 420px;
   filter: drop-shadow(0 0 25px #e6b940aa);
   animation: fadeZoom 0.8s ease;
+  border-radius: 50px;
 }
 
 @keyframes fadeZoom {
@@ -1425,6 +1426,7 @@ fieldset {
 .star-img {
   width: 380px;
   filter: drop-shadow(0 0 20px #e6b940aa);
+  border-radius: 50px;
 }
 
 .star-texts {
