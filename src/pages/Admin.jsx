@@ -31,9 +31,11 @@ const Admin = () => {
 
   return (
     <div className="admin-page-wrapper">
-      <button className="back-button admin-back" onClick={handleGoHome}>
-        ← Volver al inicio
-      </button>
+      <div className="admin-page-header">
+        <button className="back-button admin-back" onClick={handleGoHome}>
+          ← Volver al inicio
+        </button>
+      </div>
 
       <div className="admin-page-content">
         {!isLoggedIn ? (

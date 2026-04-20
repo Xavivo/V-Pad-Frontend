@@ -22,7 +22,8 @@ const PedirADomicilio = () => {
 
   return (
     <div className="pedir-page-wrapper">
-      <div className="admin-access-bar">
+      <div className="pedir-top-actions">
+        <button className="back-button" onClick={handleGoBack}>← Volver</button>
         <button className="admin-access-btn" onClick={handleGoAdmin}>
           👤 Acceder
         </button>
@@ -37,7 +38,6 @@ const PedirADomicilio = () => {
 
           <section className="dishes-section">
             <div className="dishes-section-header">
-              <button className="back-button" onClick={handleGoBack}>← Volver</button>
               <h3>Platos disponibles</h3>
             </div>
             <Dishes onAddToCart={handleAddToCart} />

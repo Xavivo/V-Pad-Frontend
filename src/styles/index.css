@@ -160,16 +160,35 @@ nav {
     max-width: 140px;
 }
 
+.pedir-top-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
 .admin-page-wrapper {
-    max-width: 980px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    min-height: calc(100vh - 160px);
+}
+
+.admin-page-header {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 16px;
 }
 
 .admin-page-content {
     display: flex;
-    justify-content: center;
-    padding-top: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    padding-top: 0;
 }
 
 .admin-login-card,
@@ -181,6 +200,16 @@ nav {
     padding: 24px;
 }
 
+.admin-login-card {
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.admin-page-panel {
+    max-width: none;
+    min-height: calc(80vh - 60px);
+}
+
 .admin-login-card h2,
 .admin-page-panel h2 {
     margin-top: 0;
@@ -188,7 +217,7 @@ nav {
 }
 
 .admin-back {
-    margin-bottom: 14px;
+    margin: 0;
 }
 
 .admin-access-btn:hover,
