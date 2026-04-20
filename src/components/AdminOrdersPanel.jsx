@@ -58,6 +58,10 @@ const AdminOrdersPanel = ({ sourceLabel }) => {
             const orderSource = order.source || sourceLabel || 'Desconocido';
             const orderDate = order.date || order.createdAt || order.timestamp || null;
             const orderTotal = order.total || order.amount || null;
+            const orderTable = order.tableNumber || order.table || null;
+            const orderName = order.customerName || order.customer?.name || null;
+            const orderPhone = order.customerPhone || order.customer?.phone || null;
+            const orderAddress = order.customerAddress || order.customer?.address || null;
 
             return (
               <div key={order.id || `${orderDate}-${orderSource}`} className="admin-order-card">
@@ -66,6 +70,10 @@ const AdminOrdersPanel = ({ sourceLabel }) => {
                   <span><strong>Origen:</strong> {orderSource}</span>
                 </div>
                 {orderDate && <p><strong>Fecha:</strong> {new Date(orderDate).toLocaleString()}</p>}
+                {orderTable && <p><strong>Mesa:</strong> {orderTable}</p>}
+                {orderName && <p><strong>Nombre:</strong> {orderName}</p>}
+                {orderPhone && <p><strong>Teléfono:</strong> {orderPhone}</p>}
+                {orderAddress && <p><strong>Dirección:</strong> {orderAddress}</p>}
                 <p><strong>Artículos:</strong></p>
                 <ul>{formatItems(order)}</ul>
                 {orderTotal !== null && <p><strong>Total:</strong> ${orderTotal}</p>}

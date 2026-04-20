@@ -46,7 +46,7 @@ const PedirAqui = () => {
 
         <div className="pedir-cart-container">
           <section className="orders-section">
-            <Orders cart={cart} setCart={setCart} />
+            <Orders cart={cart} setCart={setCart} sourceLabel="Pedir Aquí" />
           </section>
         </div>
       </div>

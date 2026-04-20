@@ -2,12 +2,17 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/components.css';
 
-const Orders = ({ cart = [], setCart = () => {} }) => {
+const Orders = ({ cart = [], setCart = () => {}, sourceLabel = '' }) => {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(null);
+  const [formError, setFormError] = useState(null);
   const [dishes, setDishes] = useState([]);
   const [selectedDishId, setSelectedDishId] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [tableNumber, setTableNumber] = useState('');
+  const [customerName, setCustomerName] = useState('');
+  const [customerPhone, setCustomerPhone] = useState('');
+  const [customerAddress, setCustomerAddress] = useState('');
 
 
   useEffect(() => {
@@ -63,14 +68,40 @@ const Orders = ({ cart = [], setCart = () => {} }) => {
   };
 
   const createOrderFromCart = async () => {
-    if (cart.length === 0) return;
+    if (cart.length === 0) {
+      setFormError('Agrega al menos un plato antes de confirmar el pedido.');
+      return;
+    }
+
+    if (sourceLabel === 'Pedir Aquí' && !tableNumber) {
+      setFormError('Selecciona el número de mesa antes de enviar el pedido.');
+      return;
+    }
+
+    if (sourceLabel === 'Pedir a Domicilio') {
+      if (!customerName || !customerPhone || !customerAddress) {
+        setFormError('Completa nombre, teléfono y dirección antes de enviar el pedido.');
+        return;
+      }
+    }
 
     const newOrder = {
       items: cart.map(item => ({
         dishId: item.dishId,
         quantity: item.quantity
-      }))
+      })),
+      source: sourceLabel
     };
+
+    if (sourceLabel === 'Pedir Aquí') {
+      newOrder.tableNumber = Number(tableNumber);
+    }
+
+    if (sourceLabel === 'Pedir a Domicilio') {
+      newOrder.customerName = customerName;
+      newOrder.customerPhone = customerPhone;
+      newOrder.customerAddress = customerAddress;
+    }
 
     await axios.post("http://localhost:8080/api/orders", newOrder);
 
@@ -78,6 +109,11 @@ const Orders = ({ cart = [], setCart = () => {} }) => {
     const response = await axios.get("http://localhost:8080/api/orders");
     setOrders(Array.isArray(response.data) ? response.data : []);
     setCart([]);
+    setFormError(null);
+    setTableNumber('');
+    setCustomerName('');
+    setCustomerPhone('');
+    setCustomerAddress('');
   };
 
   const cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2);
@@ -89,7 +125,59 @@ const Orders = ({ cart = [], setCart = () => {} }) => {
       {/* Shopping Cart Display */}
       <div className="pedir-cart-ui">
         <h3>Tu Carrito</h3>
-        
+
+        {sourceLabel === 'Pedir Aquí' && (
+          <div className="order-meta-section">
+            <label className="order-meta-label">
+              Mesa
+              <select
+                value={tableNumber}
+                onChange={(e) => setTableNumber(e.target.value)}
+                className="order-meta-input"
+              >
+                <option value="">Selecciona mesa</option>
+                {Array.from({ length: 30 }, (_, index) => index + 1).map((mesa) => (
+                  <option key={mesa} value={mesa}>{mesa}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+        )}
+
+        {sourceLabel === 'Pedir a Domicilio' && (
+          <div className="order-meta-section">
+            <label className="order-meta-label">
+              Nombre
+              <input
+                value={customerName}
+                onChange={(e) => setCustomerName(e.target.value)}
+                className="order-meta-input"
+                placeholder="Nombre"
+              />
+            </label>
+            <label className="order-meta-label">
+              Teléfono
+              <input
+                value={customerPhone}
+                onChange={(e) => setCustomerPhone(e.target.value)}
+                className="order-meta-input"
+                placeholder="Teléfono"
+              />
+            </label>
+            <label className="order-meta-label">
+              Dirección
+              <input
+                value={customerAddress}
+                onChange={(e) => setCustomerAddress(e.target.value)}
+                className="order-meta-input"
+                placeholder="Dirección"
+              />
+            </label>
+          </div>
+        )}
+
+        {formError && <p className="form-error">{formError}</p>}
+
         {/* Dish Selector */}
         <div style={{ marginBottom: '20px' }}>
           <select 
