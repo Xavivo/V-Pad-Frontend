@@ -88,7 +88,7 @@ const Orders = ({ cart = [], setCart = () => {} }) => {
     <div className="pedir-cart-wrapper">
       {/* Shopping Cart Display */}
       <div className="pedir-cart-ui">
-        <h3>🛒 Tu Carrito</h3>
+        <h3>Tu Carrito</h3>
         
         {/* Dish Selector */}
         <div style={{ marginBottom: '20px' }}>
@@ -162,7 +162,7 @@ const Orders = ({ cart = [], setCart = () => {} }) => {
         )}
       </div>
 
-      {/* Hidden order history section */}
+      {/* ORDERS code */}
       <div style={{ display: 'none' }}>
         <div>
           <h3>Historial de Pedidos</h3>

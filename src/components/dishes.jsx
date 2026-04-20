@@ -97,8 +97,8 @@ const Dishes = ({ onAddToCart }) => {
                 title="Alérgenos"
               >
                 <span className="allergen-icon" title="Gluten">🌾</span>
-                <span className="allergen-icon" title="Meat">🥩</span>
-                <span className="allergen-icon" title="Dairy">🧈</span>
+                <span className="allergen-icon" title="Carne">🥩</span>
+                <span className="allergen-icon" title="Lácteos">🧈</span>
               </div>
             </div>
           </div>
@@ -186,7 +186,7 @@ const Dishes = ({ onAddToCart }) => {
                   className="dish-modal-add-btn"
                   onClick={handleAddFromModal}
                 >
-                  🛒 Añadir al carrito
+                  Añadir al carrito
                 </button>
               </div>
             </div>
