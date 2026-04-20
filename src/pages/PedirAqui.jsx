@@ -1,17 +1,22 @@
+import { useState } from 'react';
 import Ingredients from '../components/ingredients';
 import Dishes from '../components/dishes';
 import Orders from '../components/orders';
 
 const PedirAqui = () => {
+  const [cart, setCart] = useState([]);
+
   const handleGoBack = () => {
     window.history.pushState({}, '', '/pedir');
     window.dispatchEvent(new PopStateEvent('popstate'));
   };
 
+  const handleAddToCart = (item) => {
+    setCart(prev => [...prev, item]);
+  };
+
   return (
-    <div>
-      <button className="back-button" onClick={handleGoBack}>← Volver</button>
-      
+    <div className="pedir-page-wrapper">
       <div className="pedir-page-layout">
         <div className="pedir-dishes-container">
           <section className="ingredients-section">
@@ -20,14 +25,17 @@ const PedirAqui = () => {
           </section>
 
           <section className="dishes-section">
-            <h3>Platos disponibles</h3>
-            <Dishes />
+            <div className="dishes-section-header">
+              <button className="back-button" onClick={handleGoBack}>← Volver</button>
+              <h3>Platos disponibles</h3>
+            </div>
+            <Dishes onAddToCart={handleAddToCart} />
           </section>
         </div>
 
         <div className="pedir-cart-container">
           <section className="orders-section">
-            <Orders />
+            <Orders cart={cart} setCart={setCart} />
           </section>
         </div>
       </div>
