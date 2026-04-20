@@ -8,6 +8,7 @@ const Carta = () => {
   const [error, setError] = useState(null);
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
   const [itemType, setItemType] = useState(null); // 'product', 'dish', or 'ingredient'
+  const [searchDishId, setSearchDishId] = useState(null);
 
   useEffect(() => {
     const fetchAllData = async () => {
@@ -28,6 +29,22 @@ const Carta = () => {
 
     fetchAllData();
   }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const dishId = params.get('dishId');
+    setSearchDishId(dishId);
+  }, [window.location.search]);
+
+  useEffect(() => {
+    if (!searchDishId || dishes.length === 0) return;
+
+    const selectedDish = dishes.find((dish) => String(dish.id) === String(searchDishId));
+    if (selectedDish) {
+      setProductoSeleccionado(selectedDish);
+      setItemType('dish');
+    }
+  }, [searchDishId, dishes]);
 
   const retryFetch = () => {
     setLoading(true);

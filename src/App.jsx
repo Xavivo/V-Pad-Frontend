@@ -27,14 +27,17 @@ const normalizePath = (path) => {
   return clean === '' ? '/' : clean
 }
 
-const getRouteFromPath = () => normalizePath(window.location.pathname)
+const getLocationValue = () => {
+  const pathname = normalizePath(window.location.pathname)
+  return `${pathname}${window.location.search}`
+}
 
 function App() {
-  const [route, setRoute] = useState(getRouteFromPath())
+  const [locationValue, setLocationValue] = useState(getLocationValue())
 
   useEffect(() => {
     const onLocationChange = () => {
-      setRoute(getRouteFromPath())
+      setLocationValue(getLocationValue())
     }
 
     window.addEventListener('popstate', onLocationChange)
@@ -44,11 +47,13 @@ function App() {
     }
   }, [])
 
+  const routePath = locationValue.split('?')[0]
+
   return (
     <>
       <NavBar />
       <main className="page-content">
-        {getRouteComponent(route)}
+        {getRouteComponent(routePath)}
       </main>
     </>
   )

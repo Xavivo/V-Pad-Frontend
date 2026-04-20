@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [dishes, setDishes] = useState([]);
+  const [searchFocused, setSearchFocused] = useState(false);
 
   const links = [
     { path: '/', label: 'Inicio' },
@@ -11,18 +15,72 @@ const NavBar = () => {
     { path: '/contacto', label: 'Contacto' },
   ];
 
-  const handleNavClick = (event, path) => {
-    event.preventDefault()
-    if (window.location.pathname !== path) {
-      window.history.pushState({}, '', path)
-      window.dispatchEvent(new PopStateEvent('popstate'))
+  const navigate = (path) => {
+    if (window.location.href !== `${window.location.origin}${path}`) {
+      window.history.pushState({}, '', path);
+      window.dispatchEvent(new PopStateEvent('popstate'));
     }
-    setIsMenuOpen(false); // Close menu on navigation
-  }
+    setIsMenuOpen(false);
+    setSearchFocused(false);
+  };
+
+  const handleNavClick = (event, path) => {
+    event.preventDefault();
+    navigate(path);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    const trimmedQuery = searchQuery.trim();
+    if (!trimmedQuery) {
+      navigate('/carta');
+      return;
+    }
+
+    const exactMatch = dishes.find(
+      (dish) => dish.name.toLowerCase() === trimmedQuery.toLowerCase()
+    );
+    const partialMatch = dishes.find((dish) =>
+      dish.name.toLowerCase().includes(trimmedQuery.toLowerCase())
+    );
+
+    const selectedDish = exactMatch || partialMatch;
+    if (selectedDish) {
+      navigate(`/carta?dishId=${selectedDish.id}`);
+    } else {
+      navigate(`/carta?search=${encodeURIComponent(trimmedQuery)}`);
+    }
+    setSearchQuery('');
+  };
+
+  const handleSuggestionClick = (dish) => {
+    setSearchQuery(dish.name);
+    navigate(`/carta?dishId=${dish.id}`);
+  };
+
+  const filteredSuggestions = searchQuery
+    ? dishes
+        .filter((dish) =>
+          dish.name.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+        .slice(0, 5)
+    : [];
+
+  useEffect(() => {
+    const fetchDishes = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/api/dishes');
+        setDishes(Array.isArray(response.data) ? response.data : []);
+      } catch (err) {
+        console.error('Error loading dishes for search', err);
+      }
+    };
+    fetchDishes();
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  }
+  };
 
   // Close mobile menu when screen size changes to desktop
   useEffect(() => {
@@ -48,12 +106,37 @@ const NavBar = () => {
         ))}
       </div>
 
-      <form className="search-bar" action="#" method="GET">
-        <input type="text" name="search" placeholder="Buscar en la carta..." className="search-input" />
-        <button type="submit" className="search-button">
-          🔍
-        </button>
-      </form>
+      <div className="search-bar-wrapper">
+        <form className="search-bar" onSubmit={handleSearchSubmit}>
+          <input
+            type="text"
+            name="search"
+            placeholder="Buscar en la carta..."
+            className="search-input"
+            value={searchQuery}
+            onChange={(event) => setSearchQuery(event.target.value)}
+            onFocus={() => setSearchFocused(true)}
+          />
+          <button type="submit" className="search-button" aria-label="Buscar">
+            🔍
+          </button>
+        </form>
+
+        {searchFocused && filteredSuggestions.length > 0 && (
+          <div className="search-suggestions">
+            {filteredSuggestions.map((dish) => (
+              <button
+                type="button"
+                key={dish.id}
+                className="search-suggestion-item"
+                onClick={() => handleSuggestionClick(dish)}
+              >
+                {dish.name}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
 
       <a href="https://www.instagram.com/50avenida/" target="_blank" rel="noopener noreferrer" className="instagram-link" aria-label="Follow us on Instagram">
         <svg className="instagram-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
