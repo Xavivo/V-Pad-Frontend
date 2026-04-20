@@ -1285,14 +1285,11 @@ fieldset {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    #000000f7 0%,
-    #000000e6 25%,
-    #000000d8 55%,
-    #000000f0 100%
-  );
+  background: rgba(0, 0, 0, 0.7);
   z-index: 1;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
 }
 
 .hero-content {
@@ -1331,11 +1328,16 @@ fieldset {
 }
 
 .hero-choose {
-  font-size: 20px;
-  color: #fffbe6;
-  margin-bottom: 10px;
-  text-align: center;
-  text-shadow: 0 0 8px #000;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  line-height: 1.4;
+  opacity: 0.9;
+  display: inline-block;
+  border-left: 3px solid #e6b940;
+  padding-left: 15px;
 }
 
 .hero-burger-name {
@@ -1410,9 +1412,11 @@ fieldset {
 }
 
 .star-section {
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 70px 20px;
-  background: #111;
-  border-top: 2px solid #e6b940;
 }
 
 .star-content {
@@ -2558,4 +2562,98 @@ div > .ingredients-section + .dishes-section {
   bottom: 20px;
   left: 20px;
   z-index: 2;
+  font-weight: 900;
+  color: black;
+}
+
+/* Home concept section */
+.concept-section {
+  padding: 100px 20px;
+  background-color: #0a0a0a;
+  color: white;
+}
+
+.concept-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.concept-tag {
+  color: #e6b940;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.concept-main-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  margin-top: 10px;
+  letter-spacing: -1px;
+}
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.concept-card {
+  position: relative;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 250px;
+}
+
+.concept-card:hover {
+  background: #b68602;
+  border-color: #ffc013;
+  transform: translateY(-10px);
+}
+
+.concept-number {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 120px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.02);
+  line-height: 1;
+}
+
+.concept-h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #e6b940;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.concept-p-bold {
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 1.4rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .concept-grid {
+    grid-template-columns: 1fr;
+  }
 }

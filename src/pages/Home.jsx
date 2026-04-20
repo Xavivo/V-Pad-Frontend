@@ -96,30 +96,44 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Concept */}
+      <section className="concept-section">
+        <div className="concept-header">
+          <span className="concept-tag">FILOSOFÍA AVENIDA 50</span>
+          <h2 className="concept-main-title">EL SECRETO DE NUESTRA RUTA</h2>
+        </div>
 
-      {/* Cards */}
-      <section className="valores-section">
-        <h2 className="values-title">Nuestro Concepto</h2>
-
-        <div className="values-grid">
-          <div className="value-card">
-            <h3>Carne Madurada</h3>
-            <p>Sabor intenso y jugoso en cada smash.</p>
+        <div className="concept-grid">
+          <div className="concept-card">
+            <span className="concept-number">01</span>
+            <div className="concept-info">
+              <h3 className="concept-h3">Carne Madurada</h3>
+              <p className="concept-p-bold">SABOR INTENSO Y JUGOSO EN CADA SMASH.</p>
+            </div>
           </div>
 
-          <div className="value-card">
-            <h3>Pan Brioche</h3>
-            <p>Suave, tostado y perfecto para cada bocado.</p>
+          <div className="concept-card">
+            <span className="concept-number">02</span>
+            <div className="concept-info">
+              <h3 className="concept-h3">Pan Brioche</h3>
+              <p className="concept-p-bold">SUAVE, TOSTADO Y PERFECTO PARA CADA BOCADO.</p>
+            </div>
           </div>
 
-          <div className="value-card">
-            <h3>Salsas Caseras</h3>
-            <p>Recetas únicas creadas en nuestra cocina.</p>
+          <div className="concept-card">
+            <span className="concept-number">03</span>
+            <div className="concept-info">
+              <h3 className="concept-h3">Salsas Caseras</h3>
+              <p className="concept-p-bold">RECETAS ÚNICAS CREADAS EN NUESTRA COCINA.</p>
+            </div>
           </div>
 
-          <div className="value-card">
-            <h3>Smash Perfecta</h3>
-            <p>Textura crujiente por fuera, jugosa por dentro.</p>
+          <div className="concept-card">
+            <span className="concept-number">04</span>
+            <div className="concept-info">
+              <h3 className="concept-h3">Smash Perfecta</h3>
+              <p className="concept-p-bold">CRUJIENTE POR FUERA, JUGOSA POR DENTRO.</p>
+            </div>
           </div>
         </div>
       </section>
