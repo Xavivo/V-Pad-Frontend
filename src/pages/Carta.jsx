@@ -34,7 +34,7 @@ const Carta = () => {
     const params = new URLSearchParams(window.location.search);
     const dishId = params.get('dishId');
     setSearchDishId(dishId);
-  }, [window.location.search]);
+  }, []);
 
   useEffect(() => {
     if (!searchDishId || dishes.length === 0) return;

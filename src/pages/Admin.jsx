@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import AdminOrdersPanel from '../components/AdminOrdersPanel';
+import AdminOrdersPanel from '../components/adminOrdersPanel';
 
 const Admin = () => {
   const [usuario, setUsuario] = useState('');

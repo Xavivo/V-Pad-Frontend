@@ -9,6 +9,7 @@ import PedirADomicilio from './pages/PedirADomicilio'
 import Admin from './pages/Admin'
 import Contacto from './pages/Contacto'
 import Nosotros from './pages/Nosotros'
+import Footer from './components/footer'
 
 const getRouteComponent = (path) => {
   const routes = {
@@ -55,12 +56,13 @@ function App() {
   const showNavbar = !hiddenNavbarRoutes.includes(routePath);
 
   return (
-    <>
+    <div className="app-wrapper">
       {showNavbar && <NavBar />}
       <main className="page-content">
         {getRouteComponent(routePath)}
       </main>
-    </>
+      <Footer />
+    </div>
   )
 }
 
