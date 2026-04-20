@@ -6,6 +6,7 @@ import Carta from './pages/Carta'
 import Pedir from './pages/Pedir'
 import PedirAqui from './pages/PedirAqui'
 import PedirADomicilio from './pages/PedirADomicilio'
+import Admin from './pages/Admin'
 import Contacto from './pages/Contacto'
 import Nosotros from './pages/Nosotros'
 
@@ -16,6 +17,7 @@ const getRouteComponent = (path) => {
     '/pedir': <Pedir />,
     '/pedir/aqui': <PedirAqui />, // New sub-route
     '/pedir/adomicilio': <PedirADomicilio />, // New sub-route
+    '/admin': <Admin />,
     '/nosotros': <Nosotros />,
     '/contacto': <Contacto />,
   }
@@ -49,9 +51,12 @@ function App() {
 
   const routePath = locationValue.split('?')[0]
 
+  const hiddenNavbarRoutes = ['/pedir/aqui', '/pedir/adomicilio'];
+  const showNavbar = !hiddenNavbarRoutes.includes(routePath);
+
   return (
     <>
-      <NavBar />
+      {showNavbar && <NavBar />}
       <main className="page-content">
         {getRouteComponent(routePath)}
       </main>

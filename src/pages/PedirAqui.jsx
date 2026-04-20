@@ -11,12 +11,23 @@ const PedirAqui = () => {
     window.dispatchEvent(new PopStateEvent('popstate'));
   };
 
+  const handleGoAdmin = () => {
+    window.history.pushState({}, '', '/admin');
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+
   const handleAddToCart = (item) => {
     setCart(prev => [...prev, item]);
   };
 
   return (
     <div className="pedir-page-wrapper">
+      <div className="admin-access-bar">
+        <button className="admin-access-btn" onClick={handleGoAdmin}>
+          👤 Acceder
+        </button>
+      </div>
+
       <div className="pedir-page-layout">
         <div className="pedir-dishes-container">
           <section className="ingredients-section">
