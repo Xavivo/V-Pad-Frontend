@@ -798,6 +798,150 @@ fieldset {
   background: #fffbe6;
 }
 
+/* Pedir Landing Page */
+
+.pedir-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: -20px 20px;
+}
+
+.pedir-cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0px 20px;
+}
+
+.pedir-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  min-height: 280px;
+  padding: 40px !important;
+}
+
+.pedir-card .game-title {
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.pedir-card .game-description {
+  font-size: 20px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.pedir-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(230, 185, 64, 0.4);
+  background-color: rgba(30, 30, 30, 0.95);
+}
+
+.pedir-card:active {
+  transform: translateY(-4px);
+}
+
+.back-button {
+  margin: 20px 0 20px 20px;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #e6b940 60%, #bfa046 100%);
+  color: #232323;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(230, 185, 64, 0.3);
+}
+
+.back-button:hover {
+  background: linear-gradient(90deg, #fffbe6 60%, #e6b940 100%);
+  transform: scale(1.05);
+}
+
+.back-button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive: Stack cards on mobile and tablet */
+@media (max-width: 768px) {
+  .pedir-cards-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px 15px;
+  }
+
+  .pedir-card {
+    min-height: 240px;
+    padding: 30px !important;
+  }
+
+  .pedir-card .game-title {
+    font-size: 36px;
+  }
+
+  .pedir-card .game-description {
+    font-size: 18px;
+  }
+
+  .back-button {
+    margin: 15px 0 15px 15px;
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .game-card {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pedir-cards-row {
+    gap: 15px;
+    padding: 20px 10px;
+  }
+
+  .pedir-card {
+    min-height: 200px;
+    padding: 20px !important;
+  }
+
+  .pedir-card .game-title {
+    font-size: 28px;
+  }
+
+  .pedir-card .game-description {
+    font-size: 16px;
+  }
+
+  .back-button {
+    margin: 10px 0 10px 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .game-card {
+    padding: 15px;
+  }
+
+  .game-title {
+    font-size: 24px;
+  }
+
+  .game-description {
+    font-size: 14px;
+  }
+}
+
 .form-message {
   margin-top: 10px;
   color: #e6b940;

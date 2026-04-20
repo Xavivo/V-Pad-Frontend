@@ -3,13 +3,14 @@ import Dishes from '../components/dishes';
 import Orders from '../components/orders';
 
 const PedirAqui = () => {
+  const handleGoBack = () => {
+    window.history.pushState({}, '', '/pedir');
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+
   return (
     <div>
-      <fieldset className="game-card">
-        <h2 className="game-title">Pedir Aquí</h2>
-        <p className="game-description">Elige tus platos favoritos y recógelo en el local.</p>
-      </fieldset>
-
+      <button className="back-button" onClick={handleGoBack}>← Volver</button>
       <section className="ingredients-section">
         <h3>Ingredientes disponibles</h3>
         <Ingredients />

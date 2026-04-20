@@ -3,18 +3,23 @@ import './styles/App.css'
 import NavBar from './components/NavBar'
 import Home from './pages/Home'
 import Carta from './pages/Carta'
+import Pedir from './pages/Pedir'
 import PedirAqui from './pages/PedirAqui'
 import PedirADomicilio from './pages/PedirADomicilio'
 import Contacto from './pages/Contacto'
 import Nosotros from './pages/Nosotros'
 
-const routes = {
-  '/': <Home />,
-  '/carta': <Carta />,
-  '/pediraqui': <PedirAqui />,
-  '/pediradomicilio': <PedirADomicilio />,
-  '/nosotros': <Nosotros />,
-  '/contacto': <Contacto />,
+const getRouteComponent = (path) => {
+  const routes = {
+    '/': <Home />,
+    '/carta': <Carta />,
+    '/pedir': <Pedir />,
+    '/pedir/aqui': <PedirAqui />, // New sub-route
+    '/pedir/adomicilio': <PedirADomicilio />, // New sub-route
+    '/nosotros': <Nosotros />,
+    '/contacto': <Contacto />,
+  }
+  return routes[path] ?? <Home />
 }
 
 const normalizePath = (path) => {
@@ -43,7 +48,7 @@ function App() {
     <>
       <NavBar />
       <main className="page-content">
-        {routes[route] ?? <Home />}
+        {getRouteComponent(route)}
       </main>
     </>
   )

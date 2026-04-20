@@ -7,8 +7,7 @@ const NavBar = () => {
     { path: '/', label: 'Inicio' },
     { path: '/carta', label: 'Carta' },
     { path: '/nosotros', label: 'Nosotros' },
-    { path: '/pediraqui', label: 'Pedir Aquí' },
-    { path: '/pediradomicilio', label: 'Pedir a Domicilio' },
+    { path: '/pedir', label: 'Pedir' },
     { path: '/contacto', label: 'Contacto' },
   ];
 
