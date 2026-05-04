@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../styles/adminOrdersPanel.css';
 
 const AdminOrdersPanel = ({ sourceLabel }) => {
   const [orders, setOrders] = useState([]);
