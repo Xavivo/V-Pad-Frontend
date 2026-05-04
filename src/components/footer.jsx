@@ -44,10 +44,10 @@ const Footer = () => {
           <div className="footer-column">
             <h4 className="footer-title">Links</h4>
             <ul className="footer-links">
-              <li><a href="#">Nosotros</a></li>
-              <li><a href="#">Carta</a></li>
-              <li><a href="#">Pedir</a></li>
-              <li><a href="#">Contacto</a></li>
+              <li><a href="http://localhost:5173/nosotros">Nosotros</a></li>
+              <li><a href="http://localhost:5173/carta">Carta</a></li>
+              <li><a href="http://localhost:5173/pedir">Pedir</a></li>
+              <li><a href="http://localhost:5173/contacto">Contacto</a></li>
             </ul>
           </div>
 

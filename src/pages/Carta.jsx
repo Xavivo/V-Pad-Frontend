@@ -3,24 +3,19 @@ import axios from "axios";
 
 const Carta = () => {
   const [dishes, setDishes] = useState([]);
-  const [ingredients, setIngredients] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
-  const [itemType, setItemType] = useState(null); // 'product', 'dish', or 'ingredient'
+  const [, setItemType] = useState(null);
   const [searchDishId, setSearchDishId] = useState(null);
 
   useEffect(() => {
     const fetchAllData = async () => {
       try {
-        const [dishesRes, ingredientsRes] = await Promise.all([
-          axios.get('http://localhost:8080/api/dishes'),
-          axios.get('http://localhost:8080/api/ingredients')
-        ]);
+        const dishesRes = await axios.get('http://localhost:8080/api/dishes');
         setDishes(dishesRes.data);
-        setIngredients(ingredientsRes.data);
+      // eslint-disable-next-line no-unused-vars
       } catch (err) {
-        console.error('Error', err);
         setError('Ha habido un error al cargar la carta. Por favor, inténtalo de nuevo más tarde.');
       } finally {
         setLoading(false);
@@ -51,14 +46,10 @@ const Carta = () => {
     setError(null);
     const fetchAllData = async () => {
       try {
-        const [dishesRes, ingredientsRes] = await Promise.all([
-          axios.get('http://localhost:8080/api/dishes'),
-          axios.get('http://localhost:8080/api/ingredients')
-        ]);
+        const dishesRes = await axios.get('http://localhost:8080/api/dishes');
         setDishes(dishesRes.data);
-        setIngredients(ingredientsRes.data);
+      // eslint-disable-next-line no-unused-vars
       } catch (err) {
-        console.error('Error', err);
         setError('Ha habido un error al cargar la carta. Por favor, inténtalo de nuevo más tarde.');
       } finally {
         setLoading(false);
@@ -97,7 +88,6 @@ const Carta = () => {
       <h2 className="menu-title">Carta</h2>
 
       <div className="menu-scroll">
-        {/* Dishes Section */}
         {dishes.length > 0 && (
           <section className="category">
             <h3 className="category-title">Platos Recomendados</h3>
@@ -121,33 +111,8 @@ const Carta = () => {
             </div>
           </section>
         )}
-
-        {/* Ingredients Section */}
-        {ingredients.length > 0 && (
-          <section className="category">
-            <h3 className="category-title">Ingredientes Destacados</h3>
-            <div className="products-grid">
-              {ingredients.map((ing) => (
-                <div
-                  key={ing.id}
-                  className="product-card"
-                  onClick={() => {
-                    setProductoSeleccionado(ing);
-                    setItemType('ingredient');
-                  }}
-                >
-                  <img src={ing.image || '/imagenTemporal.avif'} alt={ing.name} className="product-img" />
-                  <div className="card-info">
-                    <h4>{ing.name}</h4>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
       </div>
 
-      {/* Modal */}
       {productoSeleccionado && (
         <div className="modal-overlay" onClick={() => {
           setProductoSeleccionado(null);
@@ -165,43 +130,22 @@ const Carta = () => {
             </button>
 
             <img
-              src={
-                itemType === 'product'
-                  ? productoSeleccionado.imagen
-                  : productoSeleccionado.image || '/imagenTemporal.avif'
-              }
-              alt={itemType === 'product' ? productoSeleccionado.nombre : productoSeleccionado.name}
+              src={productoSeleccionado.image || '/imagenTemporal.avif'}
+              alt={productoSeleccionado.name}
               className="modal-img-large"
             />
 
             <div className="modal-content">
-              <h3 className="modal-title">
-                {itemType === 'product'
-                  ? productoSeleccionado.nombre
-                  : productoSeleccionado.name}
-              </h3>
+              <h3 className="modal-title">{productoSeleccionado.name}</h3>
 
-              {(itemType === 'product' || itemType === 'dish') && productoSeleccionado.descripcion && (
+              {productoSeleccionado.description && (
                 <p className="modal-description">
-                  {productoSeleccionado.descripcion || productoSeleccionado.description}
+                  {productoSeleccionado.description}
                 </p>
               )}
 
-              {itemType === 'product' && productoSeleccionado.alergenos && (
-                <>
-                  <h4 className="modal-subtitle">Alérgenos</h4>
-                  <ul className="modal-allergens">
-                    {productoSeleccionado.alergenos.map((a, i) => (
-                      <li key={i}>{a}</li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
               <p className="modal-price">
-                {itemType === 'product'
-                  ? productoSeleccionado.precio
-                  : `$${productoSeleccionado.price || 'N/A'}`}
+                ${productoSeleccionado.price || 'N/A'}
               </p>
             </div>
           </div>
